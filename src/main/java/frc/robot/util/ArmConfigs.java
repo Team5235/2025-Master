@@ -61,8 +61,8 @@ public class ArmConfigs {
         //set motor to inverted
         var m_invert = new MotorOutputConfigs();
            // set invert to CW+ and apply config change
-		   //m_invert.Inverted = InvertedValue.Clockwise_Positive;
-        m_invert.Inverted = InvertedValue.CounterClockwise_Positive;
+		 m_invert.Inverted = InvertedValue.Clockwise_Positive;
+        //m_invert.Inverted = InvertedValue.CounterClockwise_Positive;
   
         /* Apply Configs */
         m_arm.getConfigurator().apply(armGains0, 0.050);

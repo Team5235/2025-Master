@@ -17,7 +17,7 @@ public class ArmConstants {
       public static final double ARM_HIGH_POSE = 55;
       public static final double ARM_AMP_POSE = 90; // 90 -> 85 -> 80 -> 70
       // public static final double ARM_SAFETY_POSE = 27.5;
-      public static final int ARM_FWD_LIMIT = 10; //100; // Previous event 91
+      public static final int ARM_FWD_LIMIT = 25; //100; // Previous event 91
   
       /* Distances (inches) from front Bumper Speaker Base to front Bumper and arm in canon units
       Pose 0 is at the base, Pose 1 is at the leg of the Stage, i.e. "Safety Pose"

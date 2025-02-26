@@ -64,7 +64,7 @@ public class FollowArmConfigs {
 		   //m_invert.Inverted = InvertedValue.Clockwise_Positive;
         //m_invert.Inverted = InvertedValue.CounterClockwise_Positive;
         // set opposite main motor for follower
-        m_invert.Inverted = InvertedValue.Clockwise_Positive;
+        m_invert.Inverted = InvertedValue.CounterClockwise_Positive;
   
         /* Apply Configs */
         m_arm.getConfigurator().apply(armGains0, 0.050);
