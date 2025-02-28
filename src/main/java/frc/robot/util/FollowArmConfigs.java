@@ -11,6 +11,7 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.GravityTypeValue;
 import com.ctre.phoenix6.signals.InvertedValue;
+import com.ctre.phoenix6.signals.NeutralModeValue;
 
 public class FollowArmConfigs {
 
@@ -32,13 +33,13 @@ public class FollowArmConfigs {
         /* Gains or configuration of arm motor for config slot 0 */
         var armGains0 = new Slot0Configs();
         armGains0.GravityType = GravityTypeValue.Arm_Cosine; /* .Elevator_Static | .Arm_Cosine */
-        armGains0.kP = 0.50; /* Proportional Gain */        //4.80   // was 0.50
+        armGains0.kP = 4.50; /* Proportional Gain */        //4.80   // was 0.50
         armGains0.kI = 0.00; /* Integral Gain */
         armGains0.kD = 0.10; //0.01; /* Derivative Gain */             // was zero
         armGains0.kV = 0.12; /* Velocity Feed Forward Gain */  // was zero
         armGains0.kS = 0.25; //0.25; /* Static Feed Forward Gain */    // was zero
         armGains0.kA = 0.00; /* Acceleration Feedforward */
-        armGains0.kG = 0.00; /* Gravity Feedfoward */
+        armGains0.kG = 0.25; /* Gravity Feedfoward */
 
         // set Motion Magic settings
         var armMotionMagic0 = new MotionMagicConfigs();
@@ -65,6 +66,7 @@ public class FollowArmConfigs {
         //m_invert.Inverted = InvertedValue.CounterClockwise_Positive;
         // set opposite main motor for follower
         m_invert.Inverted = InvertedValue.CounterClockwise_Positive;
+        m_invert.NeutralMode = NeutralModeValue.Brake;
   
         /* Apply Configs */
         m_arm.getConfigurator().apply(armGains0, 0.050);

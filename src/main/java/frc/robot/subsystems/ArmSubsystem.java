@@ -39,10 +39,16 @@ public class ArmSubsystem extends SubsystemBase {
 
     } /* End of the class-method */
 
-   // public StatusSignal<Double> getArmPos() {
+    // public StatusSignal<Double> getArmPos() {
     public StatusSignal<Angle> getArmPos() {
         /* Reusing from drivetrain subsystem */
         return m_arm.getPosition();
+        
+    }
+
+    public Double getArmPosDouble() {
+        /* Reusing from drivetrain subsystem */
+        return m_armPose.Position;
         
     }
 

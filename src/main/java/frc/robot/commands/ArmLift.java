@@ -11,6 +11,10 @@ import frc.robot.subsystems.LiftArmSubsystem;
 public class ArmLift extends Command {
 
   LiftArmSubsystem m_LiftArmSubsystem;
+ // private double lastArmSetPoint = 0.0;
+ // private double lastTeleSetPoint = 0.0;
+;
+
   /** Creates a new ArmLift. */
   public ArmLift(LiftArmSubsystem parm_liftArm) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -32,11 +36,14 @@ public class ArmLift extends Command {
   @Override
   public void execute() {
    // m_LiftArmSubsystem.ArmLift();
-  }
+ 
 
+  }
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_LiftArmSubsystem.HoldArmPos(m_LiftArmSubsystem.getArmPosAngle());
+  }
 
   // Returns true when the command should end.
   @Override

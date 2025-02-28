@@ -89,6 +89,7 @@ public class RobotContainer {
             )
         );
 
+
         joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
         joystick.b().whileTrue(drivetrain.applyRequest(() ->
             point.withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))
@@ -106,10 +107,12 @@ public class RobotContainer {
 
         drivetrain.registerTelemetry(logger::telemeterize);
 
+
         m_operatorController.y().whileTrue(new ArmLift(lift_Arm));
         m_operatorController.x().whileTrue(new ArmLower(lift_Arm));
 
         m_operatorController.a().whileTrue(new InstantCommand(() -> arm.setArmPose(ArmConstants.ARM_MID_POSE)));
+        //m_operatorController.b().whileTrue(new InstantCommand(() -> lift_Arm.HoldArmPos(lift_Arm.getArmPosAngle())));
 
         /* old version which will move to a set position
             // m_operatorController.y().whileTrue(new InstantCommand(() -> arm.setArmPose(ArmConstants.ARM_HOME_POSE)));

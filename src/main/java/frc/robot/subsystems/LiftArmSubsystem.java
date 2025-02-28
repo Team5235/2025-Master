@@ -5,6 +5,10 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import static edu.wpi.first.units.Units.Degree;
+
+import com.ctre.phoenix6.StatusSignal;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.controls.StrictFollower;
 import com.ctre.phoenix6.controls.VoltageOut;
@@ -57,9 +61,33 @@ public class LiftArmSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("ArmSpeed", m_arm.get());
     SmartDashboard.putNumber("FollowArmSpeed", m_follow_arm.get());
   }
+
+     // public StatusSignal<Double> getArmPos() {
+    public StatusSignal<Angle> getArmPos() {
+        /* Reusing from drivetrain subsystem */
+        return m_arm.getPosition();
+        
+    }
+
+    public Angle getArmPosAngle() {
+      /* Reusing from drivetrain subsystem */
+
+      return m_armPose.getPositionMeasure();
+      
+  }
+
+    public void HoldArmPos(Angle armPose) {
+      //double adjarmpose = armPose/(2 * Math.PI);
+      //m_arm.setControl(m_armPose.withPosition(armPose));
+      m_arm.setControl(m_armPose.withPosition(armPose));
+
+      // showArmTelemetry();
+          
+  }
+    
   public void ArmLift() {
     m_arm.set(current_speed);
-    //m_arm.setControl( m_armPose.withFeedForward(current_speed));
+    //m_arm.setControl( m_armPose.withFeedForward(current_speed ));
     m_follow_arm.setControl(new StrictFollower(m_arm.getDeviceID()));
   }
 

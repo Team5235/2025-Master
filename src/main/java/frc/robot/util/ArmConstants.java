@@ -7,7 +7,7 @@ public class ArmConstants {
       public static final double ARM_NATIVE_TO_DEG = 1 / DEG_TO_ARM_NATIVE;
       public static final double ARM_MAX_DUTY_CYCLE_OUT = 0.6;
       public static final double ARM_SUPPLY_CURRENT_LIMIT = 5;
-      public static final double ARM_STATOR_CURRENT_LIMIT = 20;
+      public static final double ARM_STATOR_CURRENT_LIMIT = 20; // was 20
   
       /* Arm poses */
       public static final int ARM_REV_LIMIT = 0; //0;
